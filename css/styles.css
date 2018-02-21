@@ -115,3 +115,7 @@ body {
 .is-hidden {
   display: none;
 }
+
+.carousel__dot > * {
+  pointer-events: none;
+}
