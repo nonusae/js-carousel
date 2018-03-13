@@ -14,7 +14,8 @@ slides.forEach((slide,index) => {
 const updateSlides = (track,currentIndex,targetIndex) => {
   const currentSlide = slides[currentIndex]
   const targetSlide = slides[targetIndex]
-  track.style.left = '-' + targetSlide.style.left;
+  // track.style.left = '-' + targetSlide.style.left;
+  track.style.transform = 'translateX(-' + targetSlide.style.left +')'
   currentSlide.classList.remove('is-selected')
   targetSlide.classList.add('is-selected')
 }
