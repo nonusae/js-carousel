@@ -1,5 +1,5 @@
 # Javascript Carousel
-A simple but full functional carousel implement using Javasciprt
+An implemenation for jank free animate carousel with pure javascript (ES6)
 ---
 
 ## Instructions
@@ -12,4 +12,4 @@ A simple but full functional carousel implement using Javasciprt
 
 Screen shot(gif):
 
-![js-carousel](https://user-images.githubusercontent.com/6436298/36639831-419ae1f6-1a47-11e8-8ba1-054b5d0718d9.gif)
+![carousel-animate](https://user-images.githubusercontent.com/6436298/37321790-8683e558-26ac-11e8-9130-d8d82d063912.gif)
