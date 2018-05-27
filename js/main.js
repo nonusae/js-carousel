@@ -1,9 +1,9 @@
 // Initialize
 const track = document.querySelector('.jsTrack')
-const slides = Array.from(track.children)
+const slides = [...track.children]
 const slideWidth = slides[0].getBoundingClientRect().width
 const dotContainer = document.querySelector('.jsDotContainer')
-const dots = dotContainer.children;
+const dots = [...dotContainer.children]
 const nextButton = document.querySelector('.jsNext');
 const previousButton = document.querySelector('.jsPrevious');
 
@@ -15,7 +15,8 @@ const updateSlides = (track,currentIndex,targetIndex) => {
   const currentSlide = slides[currentIndex]
   const targetSlide = slides[targetIndex]
   // track.style.left = '-' + targetSlide.style.left;
-  track.style.transform = 'translateX(-' + targetSlide.style.left +')'
+  const amountToMove = targetSlide.style.left;
+  track.style.transform = `translateX(-${amountToMove})`;
   currentSlide.classList.remove('is-selected')
   targetSlide.classList.add('is-selected')
 }
@@ -67,17 +68,14 @@ previousSlide = e => {
 }
 
 setSlide = e => {
-  if (!e.target.matches('button')) return;
+  const targetDot = e.target.closest('button');
+  if (!targetDot) return;
 
   const currentIndex = getCurrentIndex(slides);
   const clickedDot = e.target;
   let targetIndex;
 
-  for (let index = 0; index < dots.length; index++) {
-    if (dots[index] === clickedDot) {
-      targetIndex = index;
-    }
-  }
+  targetIndex = dots.findIndex(dot => dot === targetDot )
 
   updateDots(currentIndex, targetIndex);
   updateSlides(track, currentIndex, targetIndex);
